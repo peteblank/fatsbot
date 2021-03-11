@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "botbuilder": "~4.11.0",
+    "coingecko-api": "^1.0.10",
     "dotenv": "^8.2.0",
     "restify": "~8.5.1",
     "secretjs": "^0.11.0"
