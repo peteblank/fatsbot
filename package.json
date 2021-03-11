@@ -20,7 +20,8 @@
     "coingecko-api": "^1.0.10",
     "dotenv": "^8.2.0",
     "restify": "~8.5.1",
-    "secretjs": "^0.11.0"
+    "secretjs": "^0.11.0",
+    "telebot": "^1.4.1"
   },
   "devDependencies": {
     "eslint": "^7.0.0",
