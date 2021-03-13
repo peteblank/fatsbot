@@ -92,10 +92,6 @@ const fatscrt=sscrt/fats/1000;
       const replyText ="the price of FATS is: "+fatscrt.toString()+" sscrt"+"($"+fatscrt.toString()*secret.data.secret.usd.toString()+")";
       bot.on(['/text', '/fats'], (msg) => msg.reply.text(replyText));
       // By cal
- fs.writeFile('./price.txt', +fatscrt.toString()+"+"+fatscrt.toString()*secret.data.secret.usd.toString()+",", function (err) {
-        if (err) return console.log(err);
-        console.log('price > price.txt');
-      });
 
 }
 
