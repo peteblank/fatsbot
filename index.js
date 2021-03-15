@@ -1,5 +1,5 @@
 const TeleBot = require('telebot');
-const bot = new TeleBot('1492962512:AAGX7G1JPt6ZiKLNtfoldF2MVditgERja1U');
+const bot = new TeleBot('token');//change
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 const CoinGecko = require('coingecko-api');
@@ -72,7 +72,7 @@ const client = new SigningCosmWasmClient(
 // Entropy: Secure implementation is left to the client, but it is recommended to use base-64 encoded random bytes and not predictable inputs.
 
 var contractAddress='secret1fspv4fzc90g72r22djhhtf2jrxvcte3dsvp2dk';
-const secretkey="bananapapaya";
+const secretkey="secretkey";//change
 
 // Convert the UTF8 bytes to String, before parsing the JSON for the api key.
 
