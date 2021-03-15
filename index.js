@@ -85,14 +85,44 @@ pool: {
       address: accAddress
   }
 };
- const balance = await client.queryContractSmart(contractAddress, balanceQuery);
+const balance = await client.queryContractSmart(contractAddress, balanceQuery);
 const fats= balance.assets[0].amount;
-const sscrt= balance.assets[1].amount;
-const fatscrt=sscrt/fats/1000;
-      const replyText ="the price of FATS is: "+fatscrt.toString()+" sscrt"+"($"+fatscrt.toString()*secret.data.secret.usd.toString()+")";
-      bot.on(['/text', '/fats'], (msg) => msg.reply.text(replyText));
-      // By cal
+const sscrt3= balance.assets[1].amount;
+const fatscrt=sscrt3/fats/1000;
+const fatscrt2=fatscrt.toFixed(3);
+const dollars=secret.data.secret.usd;
+const dollars2=fatscrt2*dollars.toFixed(3);
+const client2 = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+client2.connect();
+console.log(fatscrt2);
+console.log(dollars2);
+var d = new Date().toISOString().replace(/T/, " ");
+var e= d.substr(0, 19);
+console.log(e);
 
+      const replyText ="the price of FATS is: "+fatscrt2+" sscrt"+"($"+dollars2+")";
+      bot.on(['/text', '/fats'], (msg) => msg.reply.text(
+        replyText,
+      
+ client2.query(
+  `INSERT INTO price(created_on,sscrt, dollars)VALUES('${e}','${fatscrt2}','${dollars2}')`,
+  (err, res) => {
+    console.log(err, res);
+    client2.end();
+  }
+),
+      console.log('sent')
+      ))
+
+
+      bot.on(['/luigi'], (msg) => msg.reply.text("@luigi1111 come do math"));
+
+}
 }
 
 
